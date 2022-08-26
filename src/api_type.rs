@@ -1,4 +1,5 @@
 use ic_cdk::export::{candid, candid::{CandidType, Deserialize}};
+use serde::Serialize;
 
 #[allow(non_snake_case)]
 #[derive(Debug, CandidType, Deserialize)]
@@ -116,7 +117,7 @@ pub struct CanisterLogMessages<'a> {
 }
 
 #[allow(non_snake_case)]
-#[derive(Debug, CandidType, Deserialize, Clone)]
+#[derive(Debug, CandidType, Deserialize, Clone, Serialize)]
 pub struct LogMessageData {
     pub timeNanos: Nanos,
     pub message: String

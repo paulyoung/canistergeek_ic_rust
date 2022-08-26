@@ -1,4 +1,5 @@
 use ic_cdk::export::{candid::{CandidType, Deserialize}};
+use serde::Serialize;
 
 // number of update calls in each time interval for a specific day.
 pub type DayUpdateCallsCountData = Vec<u64>;
@@ -13,7 +14,7 @@ pub type DayCanisterMemorySizeData = Vec<u64>;
 pub type DayCanisterCyclesData = Vec<u64>;
 
 // specific day data with all necessary metrics
-#[derive(Debug, CandidType, Deserialize)]
+#[derive(Debug, CandidType, Deserialize, Serialize)]
 pub struct DayData {
     update_calls_data: DayUpdateCallsCountData,
     canister_heap_memory_size_data: DayCanisterHeapMemorySizeData,

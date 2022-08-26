@@ -1,10 +1,11 @@
 use ic_cdk::export::candid::{CandidType, Deserialize};
 use super::data_type::{LogMessage, LogMessagesSupplier, LogMessagesStorage, LogMessagesInfo};
 use super::super::api_type::Nanos;
+use serde::Serialize;
 
 pub type LogMessageQueue = Vec<LogMessage>;
 
-#[derive(Debug, CandidType, Deserialize)]
+#[derive(Debug, CandidType, Deserialize, Serialize)]
 pub struct Storage {
     queue: LogMessageQueue,
     max_count: usize,
